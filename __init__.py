@@ -1,14 +1,14 @@
-import requests
-from mycroft import MycroftSkill, intent_file_handler
-
-
 class PrixDeRevient(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
-        
+
+    @intent_file_handler('revient.de.prix.intent')
+    def handle_revient_de_prix(self, message):
+        self.speak_dialog('revient.de.prix')
+
     def initialize(self):
         self.register_intent_file('prix.de.revient.intent', self.handle_prix_revient)
-        self.register_entity_file('articles.entity')
+
     #@intent_file_handler('revient.de.prix.intent')
     def handle_prix_revient(self, message):
         article=message.data.get('articles')
@@ -19,10 +19,7 @@ class PrixDeRevient(MycroftSkill):
             self.speak(rep)
         else:
             self.speak('cet article est introuvable.')
-        print(data)
         #self.speak_dialog('revient.de.prix')
 
 
 def create_skill():
-    return PrixDeRevient()
-
