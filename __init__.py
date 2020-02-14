@@ -8,7 +8,7 @@ class PrixDeRevient(MycroftSkill):
         
     def initialize(self):
         self.register_intent_file('prix.de.revient.intent', self.handle_prix_revient)
-    
+        self.register_entity_file('articles.entity')
     #@intent_file_handler('revient.de.prix.intent')
     def handle_prix_revient(self, message):
         article=message.data.get('articles')
@@ -19,6 +19,7 @@ class PrixDeRevient(MycroftSkill):
             self.speak(rep)
         else:
             self.speak('cet article est introuvable.')
+        print(data)
         #self.speak_dialog('revient.de.prix')
 
 
