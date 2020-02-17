@@ -5,9 +5,9 @@ class PrixDeRevient(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
 
-    @intent_file_handler('revient.de.prix.intent')
-    def handle_revient_de_prix(self, message):
-        self.speak_dialog('revient.de.prix')
+    #@intent_file_handler('revient.de.prix.intent')
+    #def handle_revient_de_prix(self, message):
+    #    self.speak_dialog('revient.de.prix')
 
     def initialize(self):
         self.register_intent_file('prix.de.revient.intent', self.handle_prix_revient)
