@@ -23,3 +23,4 @@ class PrixDeRevient(MycroftSkill):
 
 
 def create_skill():
+    return PrixDeRevient()
