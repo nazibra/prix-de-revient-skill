@@ -24,7 +24,7 @@ class PrixDeRevient(MycroftSkill):
             
             if "||" in rep :
                 replist=rep.split("||")
-                data = {'articles': replist[0],'pr':replist[1]}
+                data = {'articles': replist[1],'pr':replist[0]}
                 self.speak_dialog('found.pr',data)
                 #self.speak(rep)
             elif rep[0:2] == 'no':
