@@ -37,7 +37,7 @@ class PrixDeRevient(MycroftSkill):
             
         else:
             data = {'arts': article}
-            self.speak('cet article est introuvable.',data)
+            self.speak_dialog('cet article est introuvable.',data)
         #self.speak_dialog('revient.de.prix')
 
 
