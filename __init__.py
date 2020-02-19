@@ -23,7 +23,7 @@ class PrixDeRevient(MycroftSkill):
             rep=resp.text
             
             if "||" in rep :
-                resplist=rep.split("||")
+                replist=rep.split("||")
                 data = {'articles': replist[0],'pr':replist[1]}
                 self.speak_dialog('found.pr',data)
                 #self.speak(rep)
