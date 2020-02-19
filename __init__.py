@@ -21,7 +21,12 @@ class PrixDeRevient(MycroftSkill):
             getdata={'intent':'pr','val':article}
             resp=requests.get('http://360.topnegoce.com:8000/new/admin/R_Banc_ass/php/Mycroft_ASSET/response.php',params=getdata)
             rep=resp.text
-            self.speak(rep)
+            
+            if "||" in rep :
+                self.speak(rep)
+            else : 
+                self.speak_dialog('not.found.pr')
+                
             #resplist=rep.split("||")
             #if len(replist)>1 :
             #    data = {'articles': replist[0],'pr':replist[1]}
