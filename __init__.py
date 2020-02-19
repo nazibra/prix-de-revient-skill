@@ -15,11 +15,15 @@ class PrixDeRevient(MycroftSkill):
     #@intent_file_handler('revient.de.prix.intent')
     def handle_prix_revient(self, message):
         article=message.data.get('articles')
+        
         if article is not None:
+            
             getdata={'intent':'pr','val':article}
             resp=requests.get('http://360.topnegoce.com:8000/new/admin/R_Banc_ass/php/SNIPS_ASSET/response.php',params=getdata)
             rep=resp.text
-            self.speak(rep)
+            data = {'articles': message.data.get('articles'),'pr':rep}
+            #self.speak(rep)
+            self.speak_dialog('found.pr',data)
         else:
             self.speak('cet article est introuvable.')
         #self.speak_dialog('revient.de.prix')
