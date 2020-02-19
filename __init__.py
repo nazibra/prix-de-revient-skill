@@ -16,7 +16,7 @@ class PrixDeRevient(MycroftSkill):
     def handle_prix_revient(self, message):
         article=message.data.get('articles')
         
-        if article is not None:
+        if article is not None and len(article)>2:
             
             getdata={'intent':'pr','val':article}
             resp=requests.get('http://360.topnegoce.com:8000/new/admin/R_Banc_ass/php/Mycroft_ASSET/response.php',params=getdata)
