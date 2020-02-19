@@ -19,11 +19,16 @@ class PrixDeRevient(MycroftSkill):
         if article is not None:
             
             getdata={'intent':'pr','val':article}
-            resp=requests.get('http://360.topnegoce.com:8000/new/admin/R_Banc_ass/php/SNIPS_ASSET/response.php',params=getdata)
+            resp=requests.get('http://360.topnegoce.com:8000/new/admin/R_Banc_ass/php/mycroft/response.php',params=getdata)
             rep=resp.text
-            data = {'articles': message.data.get('articles'),'pr':rep}
-            #self.speak(rep)
-            self.speak_dialog('found.pr',data)
+            resplist=rep.split("||")
+            if len(replist)>1 :
+                data = {'articles': replist[0],'pr':replist[1]}
+                #self.speak(rep)
+                self.speak_dialog('found.pr',data)
+            elif :    
+                self.speak('cet article est introuvable.')
+            
         else:
             self.speak('cet article est introuvable.')
         #self.speak_dialog('revient.de.prix')
