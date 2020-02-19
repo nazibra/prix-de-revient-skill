@@ -1,10 +1,2 @@
-Quel est le prix de revient de la {articles}
-Quel est le prix de revient du {articles}
-Quel est le prix de revient de l'{articles}	
-A quel prix nous est revenu l'{articles}
-A quel prix nous est revenu le {articles}
-A quel prix nous est revenu la {articles}
-Prix de revient de la {articles}	
-Prix de revient de l'{articles}	
-Prix de revient du {articles}
-
+(Quel est le | le |) prix de revient (de la | de l' | du |) {articles}
+A quel prix nous est revenu (le | l' | la |){articles}
