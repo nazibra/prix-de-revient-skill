@@ -27,6 +27,8 @@ class PrixDeRevient(MycroftSkill):
                 data = {'articles': replist[0],'pr':replist[1]}
                 self.speak_dialog('found.pr',data)
                 #self.speak(rep)
+            elif rep[0:2] == 'no':
+                self.speak_dialog(rep)
             else : 
                 data = {'arts': article}
                 self.speak_dialog('not.found.pr',data)
