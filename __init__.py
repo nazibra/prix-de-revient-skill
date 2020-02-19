@@ -25,7 +25,8 @@ class PrixDeRevient(MycroftSkill):
             if "||" in rep :
                 self.speak(rep)
             else : 
-                self.speak_dialog('not.found.pr')
+                data = {'arts': article}
+                self.speak_dialog('not.found.pr',data)
                 
             #resplist=rep.split("||")
             #if len(replist)>1 :
@@ -36,8 +37,8 @@ class PrixDeRevient(MycroftSkill):
             #    self.speak('cet article est introuvable.')
             
         else:
-            data = {'arts': article}
-            self.speak_dialog('cet article est introuvable.',data)
+            
+            self.speak('cet article est introuvable.')
         #self.speak_dialog('revient.de.prix')
 
 
