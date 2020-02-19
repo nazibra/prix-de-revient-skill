@@ -23,7 +23,10 @@ class PrixDeRevient(MycroftSkill):
             rep=resp.text
             
             if "||" in rep :
-                self.speak(rep)
+                resplist=rep.split("||")
+                data = {'articles': replist[0],'pr':replist[1]}
+                self.speak_dialog('found.pr',data)
+                #self.speak(rep)
             else : 
                 data = {'arts': article}
                 self.speak_dialog('not.found.pr',data)
@@ -37,9 +40,9 @@ class PrixDeRevient(MycroftSkill):
             #    self.speak('cet article est introuvable.')
             
         else:
+            self.speak_dialog('not.found.pr')
+            #self.speak('cet article est introuvable.')
             
-            self.speak('cet article est introuvable.')
-        #self.speak_dialog('revient.de.prix')
 
 
 def create_skill():
