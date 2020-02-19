@@ -19,7 +19,7 @@ class PrixDeRevient(MycroftSkill):
         if article is not None:
             
             getdata={'intent':'pr','val':article}
-            resp=requests.get('http://360.topnegoce.com:8000/new/admin/R_Banc_ass/php/mycroft/response.php',params=getdata)
+            resp=requests.get('http://360.topnegoce.com:8000/new/admin/R_Banc_ass/php/Mycroft_ASSET/response.php',params=getdata)
             rep=resp.text
             resplist=rep.split("||")
             if len(replist)>1 :
