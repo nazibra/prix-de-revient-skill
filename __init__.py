@@ -18,7 +18,7 @@ class PrixDeRevient(MycroftSkill):
         article=message.data.get('articles')
         types=message.data.get('typeStock')
         if article is not None and len(article)>2:
-            if types in not None :
+            if types is not None :
                 getdata={'intent':'stock','val':article,'s2':types}
             else : 
                 getdata={'intent':'stock','val':article}
