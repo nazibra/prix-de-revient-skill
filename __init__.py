@@ -19,7 +19,7 @@ class PrixDeRevient(MycroftSkill):
         types=message.data.get('typeStock')
         #print(str(article))
         #print(str(types))
-        self.speak(str(articles)+'-'+str(types))
+        self.speak(str(article)+'-'+str(types))
         if article is not None and len(article)>2:
             if types is not None :
                 getdata={'intent':'stock','val':article,'s2':types}
