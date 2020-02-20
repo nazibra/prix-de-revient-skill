@@ -11,8 +11,21 @@ class PrixDeRevient(MycroftSkill):
 
     def initialize(self):
         self.register_intent_file('prix.de.revient.intent', self.handle_prix_revient)
+        self.register_intent_file('stock.intent', self.handle_stock)
 
     #@intent_file_handler('revient.de.prix.intent')
+    def handle_stock(self, message):
+        article=message.data.get('articles')
+        
+        if article is not None and len(article)>2:
+            getdata={'intent':'stock','val':article}
+            resp=requests.get('http://360.topnegoce.com:8000/new/admin/R_Banc_ass/php/Mycroft_ASSET/response.php',params=getdata)
+            rep=resp.text
+            self.speak(rep)
+        else:
+            self.speak_dialog('no.art.pr')
+            
+            
     def handle_prix_revient(self, message):
         article=message.data.get('articles')
         
@@ -42,7 +55,7 @@ class PrixDeRevient(MycroftSkill):
             #    self.speak('cet article est introuvable.')
             
         else:
-            self.speak_dialog('not.found.pr')
+            self.speak_dialog('no.art.pr')
             #self.speak('cet article est introuvable.')
             
 
