@@ -16,9 +16,13 @@ class PrixDeRevient(MycroftSkill):
     #@intent_file_handler('revient.de.prix.intent')
     def handle_stock(self, message):
         article=message.data.get('articles')
-        
+        types=message.data.get('typeStock')
         if article is not None and len(article)>2:
-            getdata={'intent':'stock','val':article}
+            if types in not None :
+                getdata={'intent':'stock','val':article,'s2':types}
+            else : 
+                getdata={'intent':'stock','val':article}
+            #getdata={'intent':'stock','val':article}
             resp=requests.get('http://360.topnegoce.com:8000/new/admin/R_Banc_ass/php/Mycroft_ASSET/response.php',params=getdata)
             rep=resp.text
             self.speak(rep)
