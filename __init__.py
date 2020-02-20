@@ -10,10 +10,10 @@ class PrixDeRevient(MycroftSkill):
     #    self.speak_dialog('revient.de.prix')
 
     def initialize(self):
-        self.register_intent_file('prix.de.revient.intent', self.handle_prix_revient)
-        self.register_intent_file('stock.intent', self.handle_stock)
         self.register_entity_file('articles.entity')
         self.register_entity_file('typeStock.entity')
+        self.register_intent_file('prix.de.revient.intent', self.handle_prix_revient)
+        self.register_intent_file('stock.intent', self.handle_stock)
 
     #@intent_file_handler('revient.de.prix.intent')
     def handle_stock(self, message):
